@@ -9,7 +9,7 @@ export PATH
 #=======================================================================#
 cur_dir=`pwd`
 
-libreswan_filename="libreswan-3.27"
+libreswan_filename="libreswan-3.32"
 download_root_url="https://dl.lamp.sh/files"
 
 rootness(){
@@ -223,16 +223,16 @@ preinstall_l2tp(){
     fi
     echo
     echo "Please enter IP-Range:"
-    read -p "(Default Range: 192.168.18):" iprange
-    [ -z ${iprange} ] && iprange="192.168.18"
+    read -p "(Default Range: 172.36.82):" iprange
+    [ -z ${iprange} ] && iprange="172.36.82"
 
     echo "Please enter PSK:"
-    read -p "(Default PSK: teddysun.com):" mypsk
-    [ -z ${mypsk} ] && mypsk="teddysun.com"
+    read -p "(Default PSK: 666888):" mypsk
+    [ -z ${mypsk} ] && mypsk="666888"
 
     echo "Please enter Username:"
-    read -p "(Default Username: teddysun):" username
-    [ -z ${username} ] && username="teddysun"
+    read -p "(Default Username: wdvpn):" username
+    [ -z ${username} ] && username="wdvpn"
 
     password=`rand`
     echo "Please enter ${username}'s password:"
