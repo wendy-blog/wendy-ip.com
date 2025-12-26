@@ -308,15 +308,15 @@ ipcp-accept-local
 ipcp-accept-remote
 noccp
 auth
-mtu 1386
-mru 1386
+mtu 1400
+mru 1400
 # proxyarp
 lcp-echo-failure 4
 lcp-echo-interval 30
 connect-delay 5000
 logfile /var/log/xl2tpd.log
-ms-dns 223.5.5.5
 ms-dns 8.8.8.8
+ms-dns 8.8.4.4
 EOF
 cat > /etc/ppp/options.pptpd <<EOF
 name pptpd
@@ -326,9 +326,9 @@ refuse-mschap
 require-mschap-v2
 require-mppe-128
 ms-dns 8.8.8.8
-ms-dns 223.5.5.5
-mtu 1386
-mru 1386
+ms-dns 8.8.4.4
+mtu 1400
+mru 1400
 # proxyarp
 lock
 nobsdcomp
@@ -347,23 +347,17 @@ fi
 # Create VPN credentials
 conf_bk "/etc/ppp/chap-secrets"
 cat > /etc/ppp/chap-secrets <<EOF
-"wdvpn" * "wd123" *
-"ddvpn2" * "dd123" *
-"ddvpn3" * "dd123" *
-"vpndashua1" * "qq168" *
-"vpndashua2" * "qq168" *
-"vpndashua3" * "qq168" *
-"dashuvpn" * "qq168" *
-"wdvpn1" * "wd123" *
-"wdvpn2" * "wd123" *
-"wdvpn3" * "wd123" *
-"wdvpn4" * "wd123" *
-"wdvpn5" * "wd123" *
-"wdvpn6" * "wd123" *
-"wdvpn7" * "wd123" *
-"wdvpn8" * "wd123" *
-"wdvpn9" * "wd123" *
-"wdvpn10" * "wd123" *
+"wdvpn" * "wd123" 172.36.82.111
+"wdvpn1" * "wd123" 172.36.82.101
+"wdvpn2" * "wd123" 172.36.82.102
+"wdvpn3" * "wd123" 172.36.82.103
+"wdvpn4" * "wd123" 172.36.82.104
+"wdvpn5" * "wd123" 172.36.82.105
+"wdvpn6" * "wd123" 172.36.82.106
+"wdvpn7" * "wd123" 172.36.82.107
+"wdvpn8" * "wd123" 172.36.82.108
+"wdvpn9" * "wd123" 172.36.82.109
+"wdvpn10" * "wd123" 172.36.82.110
 EOF
 
 conf_bk "/etc/ipsec.d/passwd"
