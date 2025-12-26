@@ -1,14 +1,14 @@
 #!/bin/bash
-# 确保系统为CentOS 7和x86_64架构
-if [ -f /etc/redhat-release ]; then
-    release=`cat /etc/redhat-release | awk '{print $4}'`
-    if [ $release != "7." ]; then
-        echo "This script only support CentOS 7"
-        exit 1
-    fi
+
+echo "--- Linux 系统信息 ---"
+echo "主机名: $(hostname)"
+echo "操作系统/发行版: $(cat /etc/os-release | grep PRETTY_NAME | cut -d'=' -f2 | tr -d '"')"
+echo "内核版本: $(uname -r)"
+echo "CPU型号: $(lscpu | grep 'Model name' | cut -d':' -f2 | tr -s ' ')"
+echo "内存总大小: $(free -h | grep Mem | awk '{print $2}')"
+if [[ -d /sys/firmware/efi ]]; then
+    echo "系统启动模式:EFI。"
+else
+    echo "系统启动模式:Legacy"
 fi
- 
-if [ `uname -m` != "x86_64" ]; then
-    echo "This script only support x86_64 architecture"
-    exit 1
-fi
+echo "-----------------------"
