@@ -4,7 +4,7 @@
 # @Author  : wendy
 # @Desc    : ssh login banner
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-shopt -q login_shell && : || return 0
+# shopt -q login_shell && : || return 0
 upSeconds="$(cut -d. -f1 /proc/uptime)"
 # os
 upSeconds="$(cut -d. -f1 /proc/uptime)"
