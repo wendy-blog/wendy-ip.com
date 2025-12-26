@@ -347,7 +347,7 @@ fi
 # Create VPN credentials
 conf_bk "/etc/ppp/chap-secrets"
 cat > /etc/ppp/chap-secrets <<EOF
-"wdvpn" * "wd123" 172.36.82.111
+"wdvpn" * "wd123" *
 "wdvpn1" * "wd123" 172.36.82.101
 "wdvpn2" * "wd123" 172.36.82.102
 "wdvpn3" * "wd123" 172.36.82.103
