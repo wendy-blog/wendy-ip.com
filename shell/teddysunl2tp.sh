@@ -10,7 +10,7 @@ export PATH
 cur_dir=`pwd`
 
 libreswan_filename="libreswan-3.32"
-download_root_url="https://dl.lamp.sh/files"
+download_root_url="https://github.com/wendy88wendy/software/releases/download/libreswan"
 
 rootness(){
     if [[ $EUID -ne 0 ]]; then
@@ -237,7 +237,7 @@ preinstall_l2tp(){
     password=`rand`
     echo "Please enter ${username}'s password:"
     read -p "(Default Password: wd123):" wd123
-    [ ! -z ${tmppassword} ] && password=${tmppassword}
+    [ ! -z ${tmppassword} ] && password="wd123"
 
     echo
     echo "ServerIP:${IP}"
