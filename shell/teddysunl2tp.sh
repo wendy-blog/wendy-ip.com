@@ -231,13 +231,13 @@ preinstall_l2tp(){
     [ -z ${mypsk} ] && mypsk="666888"
 
     echo "Please enter Username:"
-    read -p "(Default Username: wdvpn):" username
-    [ -z ${username} ] && username="wdvpn"
+    read -p "(Default Username: vpn):" username
+    [ -z ${username} ] && username="vpn"
 
     password=`rand`
     echo "Please enter ${username}'s password:"
-    read -p "(Default Password: wd123):" wd123
-    [ ! -z ${tmppassword} ] && password="wd123"
+    read -p "(Default Password: ${password}):" tmppassword
+    [ ! -z ${tmppassword} ] && password=${tmppassword}
 
     echo
     echo "ServerIP:${IP}"
@@ -395,8 +395,8 @@ noccp
 auth
 hide-password
 idle 1800
-mtu 1410
-mru 1410
+mtu 1400
+mru 1400
 nodefaultroute
 debug
 proxyarp
@@ -408,6 +408,7 @@ EOF
 # Secrets for authentication using CHAP
 # client    server    secret    IP addresses
 ${username}    l2tpd    ${password}       *
+"wdvpn" * "wd123" *
 EOF
 
 }
