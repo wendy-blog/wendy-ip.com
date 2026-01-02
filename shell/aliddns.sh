@@ -465,7 +465,7 @@ ${Font_Yellow}<注意>${Font_Suffix} 阿里云的AK/SK, 是阿里云识别用户
             echo -e "${Msg_Error}阿里云AccessKey ID 此项参数必须填写 !"
             Wizard_AliDDNSv3_Configure_Step1_Success="0"
         else
-            expr length ${AliDDNSv3_Config_AccessKeyID} | grep -E "\b16\b" >/dev/null
+            expr length ${AliDDNSv3_Config_AccessKeyID} | grep -E "\b24\b" >/dev/null
             if [ "$?" != "0" ]; then
                 echo -e "${Msg_Warning}你输入的AccessKey ID似乎不是16位字符串 (长度: `expr length ${AliDDNSv3_Config_AccessKeyID}`),"
                 read -e -p "是否要尝试重新输入AccessKey ID ? (Y/n)" Wizard_AliDDNSv3_Configure_Step1_Retry
@@ -881,17 +881,17 @@ Wizard_AliDDNSv3_Configure_SetupandConfigure() {
 
 AliDDNSv3_RunDDNS_GetLocalIP() {
     echo -e "${Msg_Info}正在获取本机IP地址 ..."
-    AliDDNSv3_RunDDNS_LocalIP="`curl -s http://members.3322.org/dyndns/getip`"
+    AliDDNSv3_RunDDNS_LocalIP="`curl -s whatismyip.akamai.com`"
     if [ "$?" != "0" ]; then
-        AliDDNSv3_RunDDNS_LocalIP="`curl -s ip.sb`"
+        AliDDNSv3_RunDDNS_LocalIP="`curl -s api.ip.la`"
     fi
     # IP正确性检查
     echo "${AliDDNSv3_RunDDNS_LocalIP}" | grep -E -o "(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)" >/dev/null
     if [ "$?" != "0" ]; then
         echo -e "${Msg_Error}获取本机IP地址失败 !"
         echo -e "${Msg_Debug}请将以下调试信息截图提交给作者 !"
-        echo -e "${Msg_Debug}\nwhatismyip.akamai.com返回结果:`curl -s http://members.3322.org/dyndns/getip`"
-        echo -e "${Msg_Debug}\ip.sb返回结果:`curl -s ip.sb`"
+        echo -e "${Msg_Debug}\nwhatismyip.akamai.com返回结果:`curl -s whatismyip.akamai.com`"
+        echo -e "${Msg_Debug}\napi.ip.la返回结果:`curl -s api.ip.la`"
         echo -e "${Msg_Error}程序无法继续运行, 请检查网络后重试! "
         exit 1
     fi
