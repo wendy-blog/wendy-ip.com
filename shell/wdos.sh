@@ -42,8 +42,8 @@ echo -e "
  \033[0;32m------------------------------------\033[0m\033[0;1;31mby Wendy\033[0m\033[0;32m----------------\033[0m
 \033[0;1;32m##############################################################################\033[0m
 \033[0;1;32m#\033[0m                    \033[0;1;31m请根据您的服务器情况选择您需要的服务                    \033[0;1;32m#
-\033[0;1;32m#\033[0m       \033[0;1;32m(1)CentOS7.x                                                       \033[0;1;32m#
-\033[0;1;32m#\033[0m       \033[0;1;32m(2)CentOS76-MTP                                                      \033[0;1;32m#
+\033[0;1;32m#\033[0m       \033[0;1;32m(1)  CentOS7.x                                                       \033[0;1;32m#
+\033[0;1;32m#\033[0m       \033[0;1;32m(2)  CentOS76-2026                                                      \033[0;1;32m#
 \033[0;1;32m#\033[0m       \033[0;1;32m(3)  Windows server 2022 密码：WinSrv2012r                            \033[0;1;32m#
 \033[0;1;32m#\033[0m       \033[0;1;32m(4)  Window 7 x64 密码：cxthhhhh                                      \033[0;1;32m#
 \033[0;1;32m#\033[0m       \033[0;1;32m(5)  zh-cn_windows10_ltsc 密码：cxthhhhh                             \033[0;1;32m#
@@ -86,7 +86,7 @@ read N
 case $N in
   1) bash reinstall.sh -dd "https://dd.wx.mk/cxthhhhh/CentOS_7.X_NetInstallation_Final_v9.2.vhd.gz";;
   #1) bash reinstall.sh -dd "https://dd.wx.mk/system/CentOS_7.X_NetInstallation.vhd.gz";;
-  2) bash reinstall.sh -dd "http://qiniu.download-wendy.cn/images/linux/CentOS-MTP.vhd.gz";;
+  2) bash reinstall.sh -dd "https://hkcos-1329157705.cos.ap-hongkong.myqcloud.com/images/linux/centos76-2026.img.gz";;
   3) bash reinstall.sh -dd "https://dd.wx.mk/system/WinSrv2012r2_v2.vhd.gz";;
   4) bash reinstall.sh -dd "https://dd.wx.mk/cxthhhhh/Disk_Windows_7_Vienna_Ultimate_CN.vhd.gz";;
   5) bash reinstall.sh -dd "https://dd.wx.mk/cxthhhhh/zh-cn_windows10_ltsc.xz";;
